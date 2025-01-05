@@ -1,55 +1,92 @@
 # Soccer League Application
 
 ## Overview
-This repository contains a soccer league application developed with Java Swing and SQL. The Soccer League application currently allows users to create their own league and view the league table, as well as team, player, stadium, and match statistics through SQL statements. All data is stored, queried, and modified on Oracle 11g Database. An interactive GUI was programmed using Java Swing.
+This repository contains a comprehensive soccer league application developed with **Java Swing** and **Oracle SQL**. The application allows users to manage league data efficiently, providing functionalities such as creating custom leagues, viewing league tables, and analyzing team, player, stadium, and match statistics through predefined and custom SQL queries. 
 
-This project was developed for a Relational Database Systems course. Throughout the development process, important concepts such as schema building, data modelling,and database normalization (mainly 3NF and BCNF) were all reinforced. A detailed [project report](./Project_Report.pdf) expands on the implemtation of these concepts in this application.
+The backend is powered by an **Oracle 11g Database**, ensuring robust data handling, while the front end features an intuitive graphical user interface (GUI) developed using **Java Swing**. This application was created as part of a **Relational Database Systems course**, reinforcing key database concepts such as schema design, data modeling, functional dependencies, and normalization (including 3NF and BCNF). A detailed [project report](./Project_Report.pdf) further elaborates on the design and implementation of these concepts.
+
+---
 
 ## Features
+
 ### Main Page
-The main page navigates the user to pages where different SQL statements can be executed with the press of a button. There are predefined SQL statements, embedded into the code for all pages, except Custom SQL.
+The main page serves as the application's navigation hub, providing access to various database operations via buttons. Each button corresponds to a specific task, such as table creation, population, or custom queries.
 
-1. Creating and Dropping tables<br>
-![GIF for Creating and Dropping tables](gifs/create_drop_tables.gif)<br>
+#### 1. Creating and Dropping Tables  
+The application allows users to seamlessly create and drop tables with predefined SQL commands. These commands ensure proper table structure, including primary keys, foreign keys, and constraints.  
+![GIF for Creating and Dropping tables](gifs/create_drop_tables.gif)
 
-2. Populating Tables (Pressing button)<br>
-![GIF for Populating Tables (Pressing button)](gifs/pop_tables1.gif)<br>
-(After successful population) - Takes 10 seconds with many records<br>
-![GIF Populating Tables (After Pressing button)](gifs/pop_tables2_view.gif)
+- **Creating Tables**: Ensures all required entities (teams, players, matches, etc.) and their relationships are established.  
+- **Dropping Tables**: Removes all tables and associated constraints, ensuring a clean slate for rebuilding the schema.
+
+#### 2. Populating Tables  
+Users can populate tables with predefined data by pressing a button. The process inserts comprehensive sample records, including details for teams, players, matches, goals, and stadiums. This process provides a rich dataset for analysis.  
+![GIF for Populating Tables (Pressing button)](gifs/pop_tables1.gif)  
+![GIF Populating Tables (After Pressing button)](gifs/pop_tables2_view.gif)  
+
+- The operation populates thousands of records in under 10 seconds. The database is then ready for querying and analysis.
+
+---
+
 ### Query Page
-The query page contains pre-defined SQL queries that are embedded into the code. Here, users can view the league table, player information, and other important statistics.<br>
+The **Query Page** offers predefined SQL queries embedded directly into the application. These queries provide insights into the league's performance, player statistics, and match data.  
+![GIF for Query Page](gifs/query_tables.gif)  
 
-![GIF for Query Page](gifs/query_tables.gif)<br>
+- **Example Queries**:
+  - View league standings with calculated points based on wins, losses, and draws.
+  - Analyze player performance, such as top goal-scorers or most assists.
+  - Retrieve detailed match history, including dates, locations, and results.
+
+Each query is executed efficiently, showcasing the relational database's capabilities and the application's ability to integrate seamlessly with SQL.
+
+---
 
 ### Custom SQL
-The Custom SQL page allows users to enter their own SQL statements to modify and query the database.
+The **Custom SQL** feature allows users to write and execute their own SQL statements, providing full control over the database. This is particularly useful for advanced users or for performing operations not covered by predefined queries.
 
-1. Updating Database<br>
-![GIF to Update Database with Custom SQL](gifs/custom_insert_tables.gif)<br>
+#### 1. Updating the Database  
+Users can insert, update, or delete records by entering SQL commands directly into the GUI. This feature ensures flexibility in database management.  
+![GIF to Update Database with Custom SQL](gifs/custom_insert_tables.gif)
 
-2. Querying Database (Custom Query)<br>
-![GIF to Query Database with Custom SQL](gifs/custom_query_tables.gif)<br>
+#### 2. Querying the Database  
+Users can write custom SELECT statements to retrieve specific data based on their requirements. The application returns results in an easily readable format within the GUI.  
+![GIF to Query Database with Custom SQL](gifs/custom_query_tables.gif)
+
+---
+
 ## Usage
-Here are the steps to download the program onto your local machine. There are some considerations that must be taken.
 
 ### Considerations
-1. Make sure you have an Oracle DB connection from your local machine. Whether it is through a VPN or a network computer, this is mandatory to be able to run the application.
+1. **Oracle Database Connection**: Ensure a connection to the Oracle 11g database, either via a VPN or a networked computer. This is mandatory for the application to function.  
+2. **IDE Compatibility**: The application was developed using VS Code but can be run on any IDE that supports Java.
 
-2. This application was developed on VScode, but any IDE should be able to run this program.
+### Steps to Run
+1. Clone this repository to your local machine.
+2. Navigate to the `SoccerDB_GUI/src` directory.
+3. Open and run the `Main.java` file in your IDE.
 
-### Steps
-1. Clone this repo onto your local machine.
+---
 
-2. Go to SoccerDB_GUI/src
+## Technical Details
+### Database Design
+- **Schema Design**: The database schema includes entities for players, teams, matches, goals, and stadiums, with well-defined relationships and constraints to maintain data integrity.
+- **Normalization**: All tables comply with **3NF** and **BCNF**, eliminating redundancy and ensuring consistency.
+- **Functional Dependencies**: Functional dependencies were identified and enforced during table creation to maintain strict adherence to database normalization principles.
 
-3. Run the file "Main.java"
+### Key Concepts
+- **3NF and BCNF**: Ensures each table is free of partial and transitive dependencies.
+- **Predefined SQL Queries**: Optimized for quick and efficient data retrieval.
+- **GUI Integration**: Combines Java Swing's user-friendly interface with SQL's powerful data manipulation capabilities.
+
+---
 
 ## Improvements
-Future improvements to this project include but are not limited to:
-1. Making application more user intuitive - create pages that let users alter the DB without needing to know SQL
+Future enhancements aim to make the application more intuitive and scalable:
+1. **Enhanced Usability**: Introduce GUI-based options to modify the database without SQL knowledge.
+2. **Visual Enhancements**: Add color schemes and other aesthetic elements for a modern look.
+3. **Alternative Database Options**: Support databases beyond Oracle 11g to reduce dependency on Oracle accounts.
+4. **User Accounts**: Implement authentication with usernames and passwords for multi-user functionality.
 
-2. Adding colour and other visually pleasing elements to the application.
+---
 
-3. Opting for the different DB as Oracle DB requires an Oracle account.
-
-4. Adding accounts with username and password to scale this project for multiple users.
+This project exemplifies the seamless integration of database management and user interface design, providing an educational tool for understanding relational database systems and their applications.
